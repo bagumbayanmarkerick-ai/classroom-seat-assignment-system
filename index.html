@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2457a7">
+  <meta name="description" content="Offline classroom seating and attendance tracker">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <title>Classroom Seats</title>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM7 19h10M9 16v3m6-3v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <div><h1>Classroom Seats</h1><p>Seat assignment & attendance</p></div>
+    </div>
+    <button id="install" class="install-button" hidden>Install app</button>
+  </header>
+  <main>
+    <nav aria-label="Main sections">
+      <button class="tab active" data-page="today"><span aria-hidden="true">◫</span> Today</button>
+      <button class="tab" data-page="students"><span aria-hidden="true">◎</span> Students</button>
+      <button class="tab" data-page="history"><span aria-hidden="true">▦</span> History</button>
+    </nav>
+    <section id="today" class="page active">
+      <div class="toolbar">
+        <div><p class="eyebrow">DAILY OVERVIEW</p><h2>Attendance</h2></div>
+        <label class="date-field">Date <input id="attendance-date" type="date"></label>
+      </div>
+      <div class="summary" aria-label="Today's attendance summary">
+        <article><span class="summary-dot navy"></span><div><strong id="total-count">0</strong><small>Total students</small></div></article>
+        <article><span class="summary-dot green"></span><div><strong id="present-count">0</strong><small>Present</small></div></article>
+        <article><span class="summary-dot red"></span><div><strong id="absent-count">0</strong><small>Absent</small></div></article>
+        <article><span class="summary-dot gold"></span><div><strong id="unmarked-count">0</strong><small>Not marked</small></div></article>
+      </div>
+      <p class="hint">Mark attendance for the selected date.</p>
+      <div id="plan" class="card-list"></div>
+    </section>
+    <section id="students" class="page">
+      <div class="toolbar"><div><p class="eyebrow">CLASSROOM ROSTER</p><h2>Students and seats</h2></div></div>
+      <form id="student-form" class="add-form">
+        <label>Student name<input id="student-name" required maxlength="80" placeholder="e.g. Alex Lee"></label>
+        <label>Seat label<input id="student-seat" required maxlength="20" placeholder="e.g. A1"></label>
+        <label>Subject<input id="student-subject" maxlength="80" placeholder="e.g. Mathematics"></label>
+        <label>Grade<input id="student-grade" maxlength="30" placeholder="e.g. 92% or A"></label>
+        <label class="file-field">Student picture (optional)<input id="student-picture" type="file" accept="image/*"></label>
+        <button class="primary">+ Add student</button>
+      </form>
+      <p class="hint">Names and seat labels must each be unique. Changing a seat keeps attendance records.</p>
+      <div id="roster" class="card-list"></div>
+    </section>
+    <section id="history" class="page">
+      <div class="toolbar"><h2>Attendance history</h2><label>Month <input id="history-month" type="month"></label></div>
+      <div id="history-list"></div>
+    </section>
+    <footer id="save-state">Your information stays on this device.</footer>
+  </main>
+  <dialog id="edit-dialog"><form method="dialog" id="edit-form"><h2>Change seat</h2><input id="edit-id" type="hidden"><label>New seat label<input id="edit-seat" required maxlength="20"></label><div class="dialog-actions"><button value="cancel" class="secondary">Cancel</button><button id="save-seat" value="save">Save seat</button></div></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>

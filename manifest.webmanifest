@@ -1,0 +1,11 @@
+{
+  "name": "Classroom Seat Assignment System",
+  "short_name": "Classroom Seats",
+  "description": "Offline classroom seating and attendance tracker",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fb",
+  "theme_color": "#2457a7",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
