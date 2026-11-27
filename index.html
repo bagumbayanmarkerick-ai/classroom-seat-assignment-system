@@ -24,8 +24,13 @@
     <nav aria-label="Main sections">
       <button class="tab active" data-page="today"><span aria-hidden="true">◫</span> Today</button>
       <button class="tab" data-page="students"><span aria-hidden="true">◎</span> Students</button>
+      <button class="tab" data-page="seating"><span aria-hidden="true">▦</span> Seating plan</button>
       <button class="tab" data-page="history"><span aria-hidden="true">▦</span> History</button>
     </nav>
+    <div class="section-toolbar">
+      <label>Current section<select id="section-select" aria-label="Current class section"></select></label>
+      <form id="section-form" class="section-form"><label>Add another section<input id="new-section-name" maxlength="80" placeholder="e.g. Grade 10 – Section B" required></label><button class="primary">Add section</button></form>
+    </div>
     <section id="today" class="page active">
       <div class="toolbar">
         <div><p class="eyebrow">DAILY OVERVIEW</p><h2>Attendance</h2></div>
@@ -52,6 +57,24 @@
       </form>
       <p class="hint">Names and seat labels must each be unique. Changing a seat keeps attendance records.</p>
       <div id="roster" class="card-list"></div>
+    </section>
+    <section id="seating" class="page">
+      <div class="toolbar"><div><p class="eyebrow">CLASSROOM LAYOUT</p><h2>Seating plan</h2></div></div>
+      <h3 id="section-heading" class="section-heading"></h3>
+      <p class="hint">Seat labels A1–E4 fill the left block; G1–K4 fill the right block. Update a student’s seat in Students to move them on the plan.</p>
+      <div class="classroom-scroll">
+        <div class="classroom-layout" aria-label="Classroom seating chart">
+          <div class="seat-block" id="left-seats" aria-label="Left seating block"></div>
+          <div class="classroom-aisle"><span>AISLE</span></div>
+          <div class="seat-block" id="right-seats" aria-label="Right seating block"></div>
+          <div class="front-zone">
+            <div class="whiteboard">WHITEBOARD</div>
+            <div class="front-center"><div class="instructor-desk"><span class="desk-icon" aria-hidden="true">▰</span><strong>Instructor’s Table</strong></div><div class="tv-unit"><span class="tv-icon" aria-hidden="true">▣</span><strong>TV</strong></div></div>
+            <div class="whiteboard">WHITEBOARD</div>
+          </div>
+        </div>
+      </div>
+      <div id="unplaced-wrap" class="unplaced-wrap" hidden><h3>Students not placed on the map</h3><p class="hint">Use a seat label such as A1, E4, G1, or K4 to place a student.</p><div id="unplaced-list" class="card-list"></div></div>
     </section>
     <section id="history" class="page">
       <div class="toolbar"><h2>Attendance history</h2><label>Month <input id="history-month" type="month"></label></div>

@@ -213,6 +213,58 @@ button:focus-visible { outline: 3px solid #e3b865; outline-offset: 2px; }
 .status.Present { color: #25815d; }
 .status.Absent { color: #bd5359; }
 
+.classroom-scroll { overflow-x: auto; padding: 4px 2px 14px; }
+.section-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: -8px 0 22px; padding: 14px; border: 1px solid #e2e8f0; border-radius: 10px; background: #fff; }
+.section-toolbar > label { flex: 0 0 220px; }
+.section-toolbar select { width: 100%; border: 1px solid #d9e1ec; border-radius: 8px; background: #fff; color: #17243d; padding: 11px 12px; }
+.section-form { display: flex; align-items: end; gap: 10px; flex: 1; max-width: 620px; }
+.section-form label { flex: 1; }
+.section-heading { margin: 12px 0 4px; color: #234875; font-size: 18px; }
+.classroom-layout {
+  min-width: 790px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 38px minmax(0, 1fr);
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #dce4ee;
+  border-radius: 14px;
+  background: linear-gradient(#fbfcfe, #f5f8fc);
+}
+.seat-block { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.map-seat {
+  min-width: 0;
+  min-height: 102px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 6px 4px 7px;
+  border: 2px solid #315f9b;
+  border-radius: 5px;
+  background: #e9f0fa;
+  text-align: center;
+}
+.occupied-seat { background: #fff; }
+.map-seat .portrait { width: 50px; height: 56px; border-radius: 3px; border: 1px solid #c9d5e5; }
+.map-seat .portrait.placeholder { font-size: 20px; }
+.seat-number { color: #315b91; font-size: 9px; font-weight: 800; line-height: 1; }
+.seat-name { max-width: 100%; color: #263a58; font-size: 9px; font-weight: 700; line-height: 1.15; overflow-wrap: anywhere; }
+.empty-seat { justify-content: center; background: #d9e7fb; }
+.empty-seat-mark { color: #7893b8; font-size: 22px; line-height: 1; }
+.classroom-aisle { display: grid; place-items: center; border-inline: 1px dashed #c4cedc; color: #98a4b5; }
+.classroom-aisle span { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 9px; font-weight: 800; letter-spacing: 2px; }
+.front-zone { grid-column: 1 / 4; display: grid; grid-template-columns: 1fr 1.2fr 1fr; align-items: end; gap: 16px; padding: 10px 4px 0; }
+.whiteboard { height: 25px; display: grid; place-items: center; border: 1px solid #8aa0bd; background: #fff; color: #315b91; font-size: 9px; font-weight: 800; letter-spacing: 1px; }
+.front-center { display: grid; justify-items: center; gap: 6px; }
+.instructor-desk { width: 72%; min-height: 52px; display: grid; place-content: center; justify-items: center; gap: 2px; border: 1px solid #8f9aaa; border-radius: 5px 5px 10px 10px; background: #e5e9ef; color: #43536a; font-size: 10px; }
+.desk-icon { color: #3975bd; font-size: 22px; line-height: 1; }
+.tv-unit { width: 44%; min-height: 24px; display: flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid #76869b; background: #c8d2e0; color: #34465f; font-size: 9px; }
+.tv-icon { color: #245993; font-size: 15px; }
+.unplaced-wrap { margin-top: 18px; }
+.unplaced-wrap h3 { margin: 0 0 6px; color: #36465e; font-size: 15px; }
+.unplaced-wrap .card-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
 footer { margin: 28px 0 8px; color: #929dab; font-size: 11px; }
 dialog {
   border: 0;
@@ -249,4 +301,8 @@ dialog::backdrop { background: rgba(14,35,64,.48); }
   .tab { flex: 1; padding-inline: 8px; }
   .tab span { display: none; }
   .install-button { display: none; }
+  .unplaced-wrap .card-list { grid-template-columns: 1fr; }
+  .section-toolbar { align-items: stretch; flex-direction: column; }
+  .section-toolbar > label { flex: auto; }
+  .section-form { align-items: stretch; flex-direction: column; }
 }
